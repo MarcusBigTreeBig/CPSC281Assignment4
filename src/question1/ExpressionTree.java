@@ -2,7 +2,7 @@ package question1;
 
 public class ExpressionTree {
 
-    TreeNode root;
+    ExpressionNode root;
 
     /**
      * takes an expression, and creates a binary tree from the expression
