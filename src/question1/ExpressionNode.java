@@ -1,11 +1,15 @@
 package question1;
 
+/**
+ * Tree node where the value is a string
+ * Has a reference to it's left and right children
+ */
+
 public class ExpressionNode {
 
     private String value;
     private ExpressionNode left;
     private ExpressionNode right;
-    private ExpressionNode parent;
 
     /**
      * creates a node for an expression tree
@@ -16,7 +20,6 @@ public class ExpressionNode {
         this.value = value;
         left = null;
         right = null;
-        parent = null;
     }
 
     /**
@@ -45,14 +48,6 @@ public class ExpressionNode {
 
     /**
      *
-     * @return the parent node
-     */
-    public ExpressionNode getParent () {
-        return parent;
-    }
-
-    /**
-     *
      * @param node new left child node
      */
     public void setLeft (ExpressionNode node) {
@@ -65,14 +60,6 @@ public class ExpressionNode {
      */
     public void setRight (ExpressionNode node) {
         right = node;
-    }
-
-    /**
-     *
-     * @param node new parent node
-     */
-    public void setParent (ExpressionNode node) {
-        parent = node;
     }
 
 }
