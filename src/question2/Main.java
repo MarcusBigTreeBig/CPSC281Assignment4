@@ -3,6 +3,14 @@ package question2;
 import java.util.ArrayList;
 
 public class Main {
+
+    /**
+     * assigns frequency of uses (weights) to each letter in the alphabet
+     * applies a huffman code to the weights
+     * prints the huffman code for each letter
+     *
+     * @param args
+     */
     public static void main (String[] args) {
         char[] letters = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         int[] weights = {7, 2,  2, 3, 11, 2, 2, 6, 6, 1, 1, 4, 3, 7, 9, 2, 1, 6, 6, 8, 4, 1, 2, 1, 2, 1};
@@ -12,6 +20,12 @@ public class Main {
         }
     }
 
+    /**
+     * Applies a huffman algorithm to give a code for each weight inputted
+     *
+     * @param weights the weights for each letter
+     * @return the huffman code for each letter, in the same order as the input
+     */
     public static String[] huffman (int[] weights) {
         //initialize all weights as roots
         ArrayList<IntBinaryTree> roots = new ArrayList<>();
