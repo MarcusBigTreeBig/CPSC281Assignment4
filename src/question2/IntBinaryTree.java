@@ -51,4 +51,16 @@ public class IntBinaryTree {
         }
     }
 
+    public String traverse () {
+        String w = "";
+        if (left != null) {
+            w += "(" + left.traverse() + ")";
+        }
+        w += value;
+        if (right != null) {
+            w += "(" + right.traverse() + ")";
+        }
+        return w;
+    }
+
 }

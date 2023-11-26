@@ -16,9 +16,11 @@ public class Main {
         //initialize all weights as roots
         ArrayList<IntBinaryTree> roots = new ArrayList<>();
         ArrayList<IntBinaryTree> originalNodes = new ArrayList<>();
+        int sum = 0;
         for (int i: weights) {
             roots.add(new IntBinaryTree(i));
             originalNodes.add(roots.get(roots.size()-1));
+            sum += i;
         }
 
         //converting the weights into a tree until only 1 root node
@@ -28,20 +30,26 @@ public class Main {
         int min2;
         int current;
         IntBinaryTree tree;
+
         while (roots.size() != 1) {
-            minIndex1 = 0;
-            minIndex2 = 0;
+            minIndex1 = -1;//-1 if hasn't found an index yet
+            minIndex2 = -1;
             for (int i = 0; i < roots.size(); i++) {
                 current = roots.get(i).getValue();
-                min1 = roots.get(minIndex1).getValue();
-                min2 = roots.get(minIndex2).getValue();
-                if (current <= min1 && min1 <= min2) {
+                if (minIndex1 > -1) {//checking if it has an index yet
+                    min1 = roots.get(minIndex1).getValue();
+                }else{
+                    min1 = sum+1;//larger value than possible
+                }
+                if (minIndex2 > -1) {
+                    min2 = roots.get(minIndex2).getValue();
+                }else{
+                    min2 = sum+1;
+                }
+                //considering all cases, these are the ones where something should be done
+                if (current <= min1 && min1 <= min2 || min1 < current && current < min1) {
                     minIndex2 = i;
-                } else if (current <= min2 && min2 <= min1) {
-                    minIndex1 = i;
-                } else if (min1 <= current && current <= min2) {
-                    minIndex2 = i;
-                } else if (min2 <= current && current <= min1) {
+                } else if (current <= min2 && min2 < min1 || min2 < current && current < min1) {
                     minIndex1 = i;
                 }
             }
@@ -58,6 +66,7 @@ public class Main {
                 roots.remove(minIndex1);
             }
             roots.add(tree);
+
         }
 
         //finding the huffman value for each starting node
