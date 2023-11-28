@@ -7,8 +7,6 @@ package question1;
 
 public class ExpressionTree {
 
-    public static char[] operators = {'/', '*', '+', '-'};//in order of precedence
-
     private ExpressionNode root;
 
     /**
@@ -113,27 +111,16 @@ public class ExpressionTree {
     }
 
     /**
-     * lower number for higher precedence
-     *
-     * @return precedence, -1 if the value is not an operator
-     */
-    public static int precedence (String value) {
-        if (value.length() == 1) {
-            for (int i = 0; i < operators.length; i++) {
-                if (value.charAt(0) == operators[i]) {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-
-    /**
      *
      * @return true if the value is an operator
      */
     public static boolean isOperator (String value) {
-        return precedence(value) > -1;
+        if (value.length() == 1) {
+            if (value.charAt(0) == '/' || value.charAt(0) == '*' || value.charAt(0) == '+' || value.charAt(0) == '-') {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
