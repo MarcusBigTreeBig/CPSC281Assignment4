@@ -20,7 +20,7 @@ public class Main {
 }
 
 /*
-Sample Output:
+Sample Input/Output:
 
 (5+7)*(6+3)
 Prefix: *+57+63
