@@ -9,7 +9,7 @@ public class ExpressionTree {
 
     public static char[] operators = {'/', '*', '+', '-'};//in order of precedence
 
-    ExpressionNode root;
+    private ExpressionNode root;
 
     /**
      * takes an expression, and creates a binary tree from the expression

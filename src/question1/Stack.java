@@ -2,7 +2,7 @@ package question1;
 
 public class Stack <T> {
 
-    StackNode<T> top;
+    private StackNode<T> top;
 
     /**
      * creates an empty stack
